@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mapview">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>CDTM Center Venture 2016</title>
+
+  <!--<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />-->
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/css/mapview.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
+</head>
+<body>
+
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">link1</a></li>
+        <li><a href="badges.html">link2</a></li>
+        <li><a href="collapsible.html">link3</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div class="fixed-action-btn menu-btn" id="menu-btn">
+  <a id="sidebartoggle" class="btn-floating btn-large waves-effect waves-light red horizontal">
+    <i class="material-icons">menu</i></a>
+</div>
+
+<div ng-controller="MapController" class="main">
+  <leaflet center="center" class="map" tiles="tiles" id="map"></leaflet>
+
+  <ul class="sidebar side-nav-fake" ng-init="datasets=[]">
+    <li ng-init="dataset={name: 'Districts', checked: false}">
+      <a class="waves-effect" href="javascript:void(0)">
+        <input type="checkbox" ng-attr-id="check-{{dataset.name}}" ng-attr-data-dset="{{dataset.name}}" class="filled-in"
+               ng-model="dataset.checked" ng-click="datasetClicked(dataset)"/>
+        <label ng-attr-for="check-{{dataset.name}}">{{dataset.name}}</label>
+      </a>
+    </li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">More datasets</a></li>
+
+    <li ng-repeat="dataset in datasets">
+      <a class="waves-effect" href="javascript:void(0)">
+        <input type="checkbox" ng-attr-id="check-{{dataset.name}}" ng-attr-data-dset="{{dataset.name}}" class="filled-in"
+               ng-model="dataset.checked" ng-click="datasetClicked(dataset)"/>
+        <label ng-attr-for="check-{{dataset.name}}">{{dataset.name}}</label>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+<footer class="page-footer teal">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Company Bio</h5>
+        <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+    </div>
+  </div>
+</footer>
+
+<!--  Scripts-->
+<script src="/js/jquery-2.2.4.min.js"></script>
+<script src="/js/materialize.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+<script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.js"></script>
+<script src="/js/angular-leaflet-directive.js"></script>
+<script src="/js/map.js"></script>
+</body>
+</html>

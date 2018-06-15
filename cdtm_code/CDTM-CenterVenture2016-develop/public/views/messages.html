@@ -1,0 +1,95 @@
+<div class="row">
+  <div class="col s12">
+    <div class="container">
+
+      <div class"row" style="margin-top: 50px">
+        <div class="col s12 m12 l12">
+          <h4>Messenger</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12 m12 l4">
+          <div class="col s12">
+            <h6>Hello, {{user.first_name}} {{user.last_name}}!</h6>
+            <ul class="tabs">
+              <li class="tab col s3"><a class="active"href="#messages_inbox">Messages</a></li>
+              <li class="tab col s3"><a href="#request_inbox">Requests</a></li>
+              <li class="tab col s3"><a href="#poke_inbox">Pokes</a></li>
+            </ul>
+          </div>
+          <div id="messages_inbox" class="col s12">
+            <ul class="collection">
+              <li class="collection-item avatar">
+                <img src="/img/profil_pics/frohlich.jpg" alt="" class="circle">
+                <span class="title">Michael Fröhlich</span>
+                <p>Thanks for the pictures!</p>
+              </li>
+              <li class="collection-item avatar">
+                <img src="/img/profil_pics/adrian.jpg" alt="" class="circle">
+                <span class="title">David Adrian</span>
+                <p>Can you send me some pictures?</p>
+              </li>
+              <li class="collection-item avatar">
+                <img src="/img/profil_pics/brandner.jpg" alt="" class="circle">
+                <span class="title">Benedikt Brandner</span>
+                <p>Hello, nice flat!</p>
+              </li>
+              <li class="collection-item avatar">
+                <img src="/img/profil_pics/woebker.jpg" alt="" class="circle">
+                <span class="title">Cecil Woebker</span>
+                <p>Hey Johannes, I love u<3!</p>
+              </li>
+            </ul>
+
+          </div>
+          <div id="request_inbox" class="col s12">
+            <ul class="collection">
+              <li class="collection-item avatar">
+                <img src="/img/profil_pics/feuerbacher.jpg" alt="" class="circle">
+                <span class="title">Christian Feuerbacher</span>
+              </li>
+              <li class="collection-item avatar">
+                <img src="/img/profil_pics/dejan.jpg" alt="" class="circle">
+                <span class="title">Dejan Draschkow</span>
+              </li>
+              <li class="collection-item avatar">
+                <img src="/img/profil_pics/felix.jpg" alt="" class="circle">
+                <span class="title">Mark Mengle</span>
+              </li>
+              <li class="collection-item avatar">
+                <img src="/img/profil_pics/jakob.jpg" alt="" class="circle">
+                <span class="title">Jakob Gebauer</span>
+              </li>
+              <li class="collection-item avatar">
+                <img src="/img/profil_pics/kuehl.jpg" alt="" class="circle">
+                <span class="title">Josephine Kühl</span>
+              </li>
+              <li class="collection-item avatar">
+                <img src="/img/profil_pics/huneke.jpg" alt="" class="circle">
+                <span class="title">Konstantin Huneke</span>
+              </li>
+              <li class="collection-item avatar">
+                <img src="/img/profil_pics/yingxi.jpg" alt="" class="circle">
+                <span class="title">Yingxi Chen</span>
+              </li>
+            </ul>
+          </div>
+
+          <div id="poke_inbox" class="col s12">
+            <ul class="collection">
+              <li ng-repeat="poke in pokes" class="collection-item avatar">
+                <img src="{{ poke.from.pictureUrl }}" alt="" class="circle">
+                <span class="title">{{ poke.from.display_name }}</span>
+                <p>On: {{ poke.createdAt | date:'yyyy-MM-dd HH:mm' }}</p>
+                </li>
+            </ul>
+          </div>
+          </div>
+
+
+          <message-view ng-init="profile=user" class="col s12 m12 l8"></message-view>
+
+    </div>
+  </div>
+</div>

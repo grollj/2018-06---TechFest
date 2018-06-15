@@ -1,0 +1,25 @@
+{
+    "recordTemplate": {
+        "maintainer": "N/A", 
+        "description": "Foursquare checked-in data for munich only.", 
+        "maintainer_email": "N/A", 
+        "license_id": "N/A", 
+        "metadata_created": "N/A", 
+        "name": "Foursquare Checked-In Munich-Pruned", 
+        "metadata_modified": "N/A", 
+        "author": "Yang, Dingqi and Zhang, Daqing and Chen, Longbiao and Qu, Bingqing", 
+        "author_email": "N/A", 
+        "license_title": "N/A", 
+        "license_url": "N/A", 
+        "url_csv": "N/A"
+    }, 
+    "locationMapping": {
+        "latitude": "latitude", 
+        "district": "-1", 
+        "longitude": "longitude"
+    }, 
+    "valueMapping": {
+        "value_description": "Venue ID", 
+        "value": "venue_id"
+    }
+}

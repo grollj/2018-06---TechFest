@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col s12">
+        <div class="container">
+            <div class="row">
+                <div class="col s4"><h1>Offers</h1></div>
+                <div class="col s8"><br><br><br><a href="#/offer" target="_self" class="btn waves-effect waves-light teal lighten-1">Post Offer</a></div>
+            </div>
+            <div class="row">
+                <div ng-repeat="room in rooms" ng-init="owner=true" class="col s6 m4">
+                    <offer-preview class="col s12"></offer-preview>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

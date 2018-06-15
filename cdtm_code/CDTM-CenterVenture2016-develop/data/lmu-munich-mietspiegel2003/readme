@@ -1,0 +1,13 @@
+nm			Nettomiete in EUR
+nmqm		Nettomiete pro m² in EUR
+wfl			Wohnfläche in m²
+rooms		Anzahl der Zimmer in der Wohnung
+bj			Baujahr der Wohnung
+bez			Stadtbezirk
+wohngut		Gute Wohnlage? (J=1,N=0)
+wohnbest	Beste Wohnlage? (J=1,N=0)
+ww0			Warmwasserversorgung vorhanden? (J=0,N=1)
+zh0			Zentralheizung vorhanden? (J=0,N=1)
+badkach0	Gekacheltes Badezimmer? (J=0,N=1)
+badextra	Besondere Zusatzausstattung im Bad? (J=1,N=0)
+kueche		Gehobene Küche? (J=1,N=0)

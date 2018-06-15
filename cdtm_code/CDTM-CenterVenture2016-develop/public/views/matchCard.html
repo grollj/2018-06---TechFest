@@ -1,0 +1,21 @@
+<div class="card match-card clickable hoverable" >
+  <a href="#profile/{{match.id}}">
+    <div class="card-content row">
+      <div class="col s2" style="height:100%">
+        <div class="circular-image img-container">
+          <img src="{{match.pictureUrl}}" class="" alt="" height="50px" />
+        </div>
+      </div>
+      <div class="col s8" style="height:100%">
+        <div class="row" style="margin-bottom:0;">
+          <div class="col s12 subtitle">{{match.name}}</div>
+          <div class="col s12">{{match.occupation}}</div>
+        </div>
+      </div>
+      <div class="col s2" style="height:100%; vertical-align:middle; margin-top:10px;">
+        <div ng-class="{'hot': match.score > 0.8}"class="match-score">{{Math.floor(match.score * 100)}} %</div>
+      </div>
+    </div>
+  </div>
+  </a>
+</div>

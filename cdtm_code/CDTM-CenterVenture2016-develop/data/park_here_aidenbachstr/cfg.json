@@ -1,0 +1,25 @@
+{
+    "recordTemplate": {
+        "maintainer": "N/A", 
+        "description": "Auslastung der Parkplaetze in der Aidenbachstrasse Muenchen.", 
+        "maintainer_email": "N/A", 
+        "license_id": "N/A", 
+        "metadata_created": "N/A", 
+        "name": "Park-Here Aidenbachstrassen Datensatz", 
+        "metadata_modified": "N/A", 
+        "author": "ParkHere AG", 
+        "author_email": "N/A", 
+        "license_title": "N/A", 
+        "license_url": "N/A", 
+        "url_csv": "N/A"
+    }, 
+    "locationMapping": {
+        "latitude": "-1", 
+        "district": "-1", 
+        "longitude": "-1"
+    }, 
+    "valueMapping": {
+        "value_description": "Parkplatz Auslastung", 
+        "value": "auslastung"
+    }
+}

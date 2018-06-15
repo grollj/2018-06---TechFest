@@ -1,0 +1,180 @@
+<div class="search-flex">
+
+
+
+    <form class="search-left grow" id="search-left">
+      <div class ="row">
+          <div class="col s12" style="margin-left:10px;margin-top:30px;margin-bottom:20px">
+            <h2>Find your perfect Appartment</h2>
+          </div>
+      </div>
+      <div class="card" style="margin:20px; padding: 20px">
+      <div class ="row">
+        <div class="input-field col s6 form-group">
+          <input id="startdate" type="text" class="datepicker form-control" ng-model="formData.startdate">
+          <label for="startdate">Available from</label>
+        </div>
+        <div class="input-field col s6 form-group" style="">
+          <input id="checkbox_shortterm" type="checkbox" class="filled-in form-control" ng-model="formData.checkbox_shortterm">
+          <label for="checkbox_shortterm">Short Term?</label>
+        </div>
+        <div hide ng-show='formData.checkbox_shortterm' class="input-field col s12 form-group">
+          <input id="enddate" type="text" class="datepicker form-control" ng-model="formData.enddate">
+          <label for="enddate">To</label>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="input-field col s12">
+          <h6>Price range (€)</h6>
+          <rzslider rz-slider-model="price_slider.minValue"
+                    rz-slider-high="price_slider.maxValue"
+                    rz-slider-options="price_slider.options"></rzslider>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12 form-group">
+          <select id="university" class="form-control" ng-model="formData.university">
+            <option value="" disabled selected>Choose your university:</option>
+            <option value="1">Technische Universität München (Center)</option>
+            <option value="2">Technische Universität München (Garching)</option>
+            <option value="3">Ludwig-Maximilians-Universität München</option>
+          </select>
+          <label>University</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <h6>How long are you willing to travel to university? (min)</h6>
+          <rzslider rz-slider-model="travel_slider.minValue"
+                    rz-slider-high="travel_slider.maxValue"
+                    rz-slider-options="travel_slider.options"></rzslider>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12 form-group" style="">
+          <input id="checkbox_showown" type="checkbox" class="filled-in form-control" ng-model="formData.checkbox_showown">
+          <label for="checkbox_showown">Show my own offers</label>
+        </div>
+      </div>
+
+      <ul class="collapsible" data-collapsible="expandable" style="margin-top:50px">
+        <li>
+          <div class="collapsible-header">Optional</div>
+          <div class="collapsible-body row">
+
+            <div class="container col s12" style="margin-top: 25px;">
+              <div class="row">
+                <div class="col s12">
+
+                  <div class="col s12">
+                    <h6>Room size (m<sup>2</sup>)</h6>
+                    <rzslider rz-slider-model="room_slider.minValue"
+                              rz-slider-high="room_slider.maxValue"
+                              rz-slider-options="room_slider.options"></rzslider>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="container col s12" style="margin-top: 25px;">
+              <div class="row">
+                <div class="col s12">
+                  <div class="input-field col s12">
+                    <h6>Apartment size (m<sup>2</sup>)</h6>
+                    <rzslider rz-slider-model="apartment_slider.minValue"
+                              rz-slider-high="apartment_slider.maxValue"
+                              rz-slider-options="apartment_slider.options"></rzslider>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="container col s12" style="margin-top: 25px;">
+              <div class="input-field col s12 form-group">
+                <select id="room_type" class="form-control" ng-model="formData.room_type">
+                  <option value="" disabled selected>Choose your option</option>
+                  <option value="1">Shared room</option>
+                  <option value="2">Private room</option>
+                  <option value="3">Private room + Shared apartment</option>
+                  <option value="4">Whole apartment</option>
+                </select>
+                <label>Type</label>
+              </div>
+              <div class="container col s12" style="margin-top: 10px;">
+                <div class="row">
+                  <div class="input-field col s12 form-group">
+                    <input id="checkbox_furnitured" type="checkbox" class="filled-in form-control" ng-model="formData.checkbox_furnitured"/>
+                    <label for="checkbox_furnitured">Furnished</label>
+                  </div>
+                  <div class="input-field col s12 form-group">
+                    <input id="checkbox_kitchen" type="checkbox" class="filled-in form-control" ng-model="formData.checkbox_kitchen" />
+                    <label for="checkbox_kitchen">Equipped Kitchen</label>
+                  </div>
+                  <div class="input-field col s12 form-group">
+                    <input id="checkbox_washing_machine" type="checkbox" class="filled-in form-control" ng-model="formData.checkbox_washing_machine" />
+                    <label for="checkbox_washing_machine">Washing machine</label>
+                  </div>
+                  <div class="input-field col s12 form-group">
+                    <input id="checkbox_barrier_free" type="checkbox" class="filled-in form-control" ng-model="formData.checkbox_barrier_free"/>
+                    <label for="checkbox_barrier_free">Barrier-free</label>
+                  </div>
+                  <div class="input-field col s12 form-group">
+                    <input id="checkbox_pets" type="checkbox" class="filled-in form-control" ng-model="formData.checkbox_pets"/>
+                    <label for="checkbox_pets">Pets allowed</label>
+                  </div>
+                  <div class="input-field col s12 form-group">
+                    <input id="checkbox_smoking" type="checkbox" class="filled-in form-control" ng-model="formData.checkbox_smoking"/>
+                    <label for="checkbox_smoking">Smoking allowed</label>
+                  </div>
+                  <div class="input-field col s12 form-group">
+                    <input type="checkbox" class="filled-in form-control" id="checkbox_balcony" ng-model="formData.checkbox_balcony"/>
+                    <label for="checkbox_balcony">Balcony</label>
+                  </div>
+                  <div class="input-field col s12 form-group">
+                    <input type="checkbox" class="filled-in form-control" id="checkbox_garden" ng-model="formData.checkbox_garden"/>
+                    <label for="checkbox_garden">Garden</label>
+                  </div>
+                  <div class="input-field col s12 form-group">
+                    <input type="checkbox" class="filled-in form-control" id="checkbox_living_room" ng-model="formData.checkbox_living_room"/>
+                    <label for="checkbox_living_room">Living Room</label>
+                  </div>
+                  <div class="input-field col s12 form-group">
+                    <input type="checkbox" class="filled-in form-control" id="checkbox_basement" ng-model="formData.checkbox_basement"/>
+                    <label for="checkbox_basement">Basement</label>
+                  </div>
+                  <div class="input-field col s12 form-group">
+                    <input id="max_nr_of_roommates" type="number" class="validate" ng-model="formData.max_nr_of_roommates" min="0">
+                    <label for="max_nr_of_roommates">Number of Roommates:</label>
+                  </div>
+                  <div class="input-field col s12 form-group" style="">
+                    <input type="checkbox" class="filled-in form-control" id="male_roommates" ng-model="formData.male_roommates"/>
+                    <label for="male_roommates">Male</label>
+                  </div>
+                  <div class="input-field col s12 form-group" style="">
+                    <input type="checkbox" class="filled-in form-control" id="female_roommates" ng-model="formData.female_roommates"/>
+                    <label for="female_roommates">Female</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div></li>
+      </ul>
+      <!--<div class="row">-->
+        <!--<div class="col s12 right-align" style="margin-top:25px">-->
+          <!--<div class="btn">-->
+            <!--<span>Find Offer</span>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    </div>
+    </form>
+  <div class="search-map mapcontainer nomargins">
+    <flatling-map rooms="{{rooms}}" coordinates="{{city}}" toggle-left="#search-left"></flatling-map>
+  </div>
+</div>

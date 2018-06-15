@@ -1,0 +1,187 @@
+<div class="search-flex">
+
+  <form name="offerForm" ng-submit="submitForm()" class="search-left grow" id="search-left">
+    <div class ="row">
+        <div class="col s12" style="margin-left:10px;margin-top:30px;margin-bottom:20px">
+          <h2>Create your offer</h2>
+        </div>
+    </div>
+    
+      <div class="card" style="margin:20px; padding: 20px">
+        <div class ="row">
+          <div class="section col s12">
+            <h5>Street Address</h5>
+          </div>
+          <div class="input-field col s12 form-group">
+            <input id="address" type="text" class="validate form-control" ng-model="formData.address"
+            data-activates="search-dropdown" data-beloworigin="true" autocomplete="off">
+            <ul id="search-dropdown" class="dropdown-content ac-dropdown active"></ul>
+            <label for="address">Street Address</label>
+          </div>
+
+
+    </div>
+
+    <div class="row">
+      <div class="section col s12">
+        <h5>Facts</h5>
+        <p>Provide some details about the room to improve your matches.<p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12 m12 l6 form-group">
+        <input id="price" type="number" class="validate form-control" ng-model="formData.price">
+        <label for="price">Price (€) including utilities</label>
+      </div>
+      <div class="input-field col s12 m12 l6 form-group">
+        <input id="deposit" type="number" class="validate form-control" ng-model="formData.deposit">
+        <label for="deposit">Deposit (€)</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12 m12 l6 form-group">
+        <input id="size_room" type="number" class="validate form-control" ng-model="formData.size_room">
+        <label for="size_room">Room Size (m<sup>2</sup>)</label>
+      </div>
+      <div class="input-field col s12 m12 l6 form-group">
+        <input id="size_apartment" type="number" class="validate form-control" ng-model="formData.size_apartment">
+        <label for="size_apartment">Apartment Size (m<sup>2</sup>)</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12 form-group">
+        <select id="room_type" class="form-control" ng-model="formData.room_type">
+          <option value="" disabled selected>Choose your option</option>
+          <option value="1">Shared room</option>
+          <option value="2">Private room</option>
+          <option value="3">Private room in Shared apartment</option>
+          <option value="4">Whole apartment</option>
+        </select>
+        <label>Type</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12 m12 l4 form-group">
+        <input id="start_date" type="text" class="datepicker form-control" ng-model="formData.start_date">
+        <label for="start_date">Available from</label>
+      </div>
+      <div class="col s12 m12 l4 form-group" style="margin-top:30px;">
+        <input id="checkbox_shortterm" type="checkbox" class="filled-in form-control" ng-model="formData.checkbox_shortterm">
+        <label for="checkbox_shortterm">Short Term?</label>
+      </div>
+      <div hide ng-show='formData.checkbox_shortterm' class="input-field col s12 m12 l4 form-group">
+        <input id="end_date" type="text" class="datepicker form-control" ng-model="formData.end_date">
+        <label for="end_date">To</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m6 l4 form-group">
+        <input id="checkbox_furnitured" type="checkbox" class="filled-in form-control" ng-model="formData.checkbox_furnitured"/>
+        <label for="checkbox_furnitured">Furnished</label>
+      </div>
+      <div class="col s12 m6 l4 form-group">
+        <input id="checkbox_kitchen" type="checkbox" class="filled-in form-control" ng-model="formData.checkbox_kitchen" />
+        <label for="checkbox_kitchen">Equipped Kitchen</label>
+      </div>
+      <div class="col s12 m6 l4 form-group">
+        <input id="checkbox_washing_machine" type="checkbox" class="filled-in form-control" ng-model="formData.checkbox_washing_machine" />
+        <label for="checkbox_washing_machine">Washing machine</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m6 l4 form-group">
+        <input id="checkbox_barrier_free" type="checkbox" class="filled-in form-control" ng-model="formData.checkbox_barrier_free"/>
+        <label for="checkbox_barrier_free">Barrier-free</label>
+      </div>
+      <div class="col s12 m4 l4 form-group">
+        <input id="checkbox_pets" type="checkbox" class="filled-in form-control" ng-model="formData.checkbox_pets"/>
+        <label for="checkbox_pets">Pets allowed</label>
+      </div>
+      <div class="col s12 m6 l4 form-group">
+        <input id="checkbox_smoking" type="checkbox" class="filled-in form-control" ng-model="formData.checkbox_smoking"/>
+        <label for="checkbox_smoking">Smoking allowed</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m6 l4 form-group">
+        <input type="checkbox" class="filled-in form-control" id="checkbox_balcony" ng-model="formData.checkbox_balcony"/>
+        <label for="checkbox_balcony">Balcony</label>
+      </div>
+      <div class="col s12 m6 l4 form-group">
+        <input type="checkbox" class="filled-in form-control" id="checkbox_garden" ng-model="formData.checkbox_garden"/>
+        <label for="checkbox_garden">Garden</label>
+      </div>
+      <div class="col s12 m6 l4 form-group">
+        <input type="checkbox" class="filled-in form-control" id="checkbox_living_room" ng-model="formData.checkbox_living_room"/>
+        <label for="checkbox_living_room">Living Room</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12 m6 l4"></div>
+      <div class="col s12 m6 l4 form-group">
+        <input type="checkbox" class="filled-in form-control" id="checkbox_basement" ng-model="formData.checkbox_basement"/>
+        <label for="checkbox_basement">Basement</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12 m12 l4 form-group">
+        <input id="nr_of_male_roommates" type="number" class="validate" ng-model="formData.nr_of_male_roommates">
+        <label for="nr_of_male_roommates">#Male Roommates:</label>
+      </div>
+      <div class="input-field col s12 m12 l4 form-group">
+        <input id="nr_of_female_roommates" type="number" class="validate" ng-model="formData.nr_of_female_roommates">
+        <label for="nr_of_female_roommates">#Female Roommates:</label>
+      </div>
+      <div class="input-field col s12 m12 l4 form-group">
+        <input id="nr_of_other_roommates" type="number" class="validate" ng-model="formData.nr_of_other_roommates">
+        <label for="nr_of_other_roommates">#Other Roommates:</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12">
+        <slider-hack>Age range of roommates</slider-hack>
+        <rzslider rz-slider-model="age_slider.minValue"
+                  rz-slider-high="age_slider.maxValue"
+                  rz-slider-options="age_slider.options"></rzslider>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12 form-group">
+        <textarea id="comments" class="materialize-textarea form-control" ng-model="formData.comments" length="500" style="height:22px;"></textarea>
+        <label for="comments">Optional Description:</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="file-field input-field col s12">
+        <div class="btn">
+          <span>Pictures</span>
+          <input type="file" multiple>
+        </div>
+        <div class="file-path-wrapper form-group">
+          <input id="uploads" class="file-path validate form-control"  ng-model="formData.uploads" type="text" placeholder="Upload one or more Pictures of your apartment">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 right-align">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Post Offer</button>
+      </div>
+    </div>
+            </div>
+  </form>
+
+
+
+  <div class="search-map mapcontainer nomargins">
+    <flatling-map></flatling-map>
+  </div>
+  </div>

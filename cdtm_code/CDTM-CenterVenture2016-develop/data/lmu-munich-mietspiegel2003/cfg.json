@@ -1,0 +1,30 @@
+{
+    "valueMapping":
+        {
+            "value_description": "Nettomiete in EUR",
+            "value": "Nettomiete_in_EUR"
+        },
+    "locationMapping":
+        {
+            "latitude": "-1",
+            "longitude": "-1",
+            "district": "Stadtbezirk"
+        },
+    "recordTemplate":
+        {
+            "name": "Münchner Mietspiegel 2003",
+            "description": "Zahlreiche deutsche Städte erstellen sogenannte Mietspiegel, um Mietern, Vermietern, Mietberatungsstellen und Sachverständigen eine \"objektive\" Entscheidungshilfe in Mietfragen zur Verfügung zu stellen. Die Mietspiegel werden dabei insbesondere zur Ermittlung der \"ortsüblichen Vergleichsmiete\" (Nettomiete in Abhängigkeit von Wohnungsgröße, -ausstattung, -alter, etc.) herangezogen. Bei der Erstellung von Mietspiegeln wird aus der Gesamtheit aller in Frage kommenden Wohnungen eine repräsentative Zufallsstichprobe gezogen (im Fall der Stadt München durch Infratest), und die interessierenden Daten werden von Interviewern anhand von Fragebögen ermittelt. Der vorliegende Datensatz stellt einen Ausschnitt aus dem Mietspiegel München des Jahres 2003 dar und enthält die Daten von 2053 Wohnungen.",
+            "maintainer_email": "N/A",
+            "maintainer": "Manuel J. A. Eugster",
+            "url_csv": "http://data.ub.uni-muenchen.de/2/1/miete03.asc",
+            "metadata_created": "2014-12-15T14:09:27.299654",
+            "metadata_modified": "18. Oct 2010 05:26",
+            "author": "Open Data LMU",
+            "author_email": "egovernment@muenchen.de",
+            "license_title": "Open Database License (ODC-ODbL) v1.0",
+            "license_url": "http://www.opendatacommons.org/licenses",
+            "license_id": "(ODC-ODbL) v1.0"
+        }
+}
+
+

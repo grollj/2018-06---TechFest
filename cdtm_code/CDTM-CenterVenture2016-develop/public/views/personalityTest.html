@@ -1,0 +1,79 @@
+<div class="overlay noScroll row dim">
+  <div class="col s12 m1 l2"></div>
+  <div class="col s12 m10 l8">
+
+    <div id="survey-form" class="content" style="">
+      <div hide ng-show="currentSection==0" class="container" style="center-align">
+
+        <img src="img/logo.png" style="height: 200px; padding: 25px 0; margin: auto; display: block;">
+
+        <center><h2>Welcome, new flatling 🎉 </h2></center>
+        <div class="section-description center-align">
+          Flatling.de will help you to find your perfect roommate based on your personality and your lifestyle. Every new flatling fills out a little survey in the beginning. This allows a roommate matching which facilitates both the house hunting and the search for a roommate.
+        </div>
+        <div class="center-align">
+          <br>
+          <div class="btn" ng-click="currentSection=1" style="margin-top:30px;">
+            Get Started
+          </div>
+        </div>
+      </div>
+
+      <div hide ng-show="section.number==currentSection" class="container" ng-repeat="section in survey.sections">
+        <h2>{{section.title}}</h2>
+        <div class="section-description">{{section.description}}</div>
+        <br>
+
+        <form class="" ng-repeat="question in section.questions">
+            <!-- TEXT Question -->
+            <div hide ng-show="question.questionType=='TEXT'">
+              <div class="question-title">{{question.question}}</div>
+              <input placeholder="{{question.title}}" type="text" ng-model="question.answer">
+            </div>
+
+            <!-- DATE Question -->
+            <div hide ng-show="question.questionType=='DATE'">
+              <div class="question-title">{{question.question}}</div>
+              <input type="text" class="datepicker"  placeholder="{{question.title}}" ng-model="question.answer">
+            </div>
+
+            <!-- CHOICE Question -->
+            <div hide ng-show="question.questionType=='CHOICE'">
+              <div class="question-title">{{question.question}}</div>
+              <div hide ng-show="question.imageUrl != null && question.imageUrl != undefined && question.imageUrl != ''">
+                <img class="materialboxed" height="300px" width="100%" ng-attr-src="{{question.imageUrl}}">
+              </div>
+              <div class="input-field col s12">
+                  <select class="icons" ng-model="question.answer">
+                      <option value="" disabled selected>Please Select</option>
+                      <option ng-repeat="answerOption in question.answerOptions" value="{{answerOption.value}}" data-icon="{{answerOption.iconUrl}}" class="left">{{answerOption.text}}</option>
+                  </select>
+              </div>
+            </div>
+
+            <!-- LIKERT Question -->
+            <div hide ng-show="question.questionType=='LIKERT'">
+              <div class="question-title">{{question.question}}</div>
+                <div class="center-align likert-line" ng-repeat="answer in question.answerOptions" style="display:inline-block; width: 19.9%;">
+                  <input name="group1" type="radio" id="{{section.number + '-' + question.number + '-' + answer.value + '-' +'likert'}}" value={{answer.value}} ng-model="question.answer"/>
+                  <label for="{{section.number + '-' + question.number + '-' + answer.value + '-' +'likert'}}"></label>
+                  <div style="color: rgba(0,0,0,0.0.6)">{{answer.text}}</div>
+                </div>
+
+            </div>
+        </form>
+        <div class="right-align">
+          <div class="btn" ng-click="nextSection()">
+            <span hide ng-show="survey.sections.length==currentSection">Finish</span>
+            <span hide ng-show="survey.sections.length!=currentSection">Next</span>
+          </div>
+        </div>
+
+
+
+        </div>
+
+      </div>
+  </div>
+  <div class="col s12 m1 l2"></div>
+</div>

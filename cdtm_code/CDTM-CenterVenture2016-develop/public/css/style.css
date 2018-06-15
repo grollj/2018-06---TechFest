@@ -1,0 +1,391 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+html, body {
+  font-family: Lato, Roboto, Arial;
+}
+
+.btn-red {
+  background-color: red !important;
+}
+
+.tabs .tab a{
+  color:#000000 !important;
+}
+
+.rzslider .rz-bar.rz-selection {
+  background-color: #26a69a  !important;
+}
+
+.rzslider .rz-pointer {
+  background-color: #26a69a  !important;
+}
+
+.tabs .indicator {
+  background-color:#0d1b2a !important;
+}
+
+.overlay {
+   width: 100%;
+   height: 100%;
+   position:
+   absolute;
+   top: 0;
+   left: 0;
+   z-index: 1500;
+}
+
+.noScroll {
+    overflow: hidden;
+    position:fixed;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.invisible {
+  display: none !important;
+}
+
+.img-container {
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+}
+
+.circular-image {
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+}
+
+.aspect-ratio-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 51%;
+}
+
+.aspect-ratio {
+  width: 100%;
+}
+
+.aspect-ratio-wrapper .aspect-ratio  {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0; top: 0;
+}
+
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+p {
+  line-height: 2rem;
+}
+
+.button-collapse {
+  color: #26a69a;
+}
+
+#nav-mobile {
+  width: 200px !important;
+}
+
+.search-bar {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.search-bar #search {
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom:0;
+  background: rgba(0,0,0,0.04);
+}
+
+nav .input-field label i {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+nav .dropdown-content li > a, .dropdown-content li > span {
+    font-size: 16px;
+    color: #0d1b2a;
+    display: block;
+    line-height: 22px;
+    padding: 14px 16px;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+  .parallax-container .section {
+    width: 100%;
+  }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+  margin-top: 20px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+
+.search--image {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  transition: height .5s;
+  height: calc(60vh)
+}
+
+.search--image .search--container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(10vh);
+  transition: bottom .5s
+}
+
+.search--image .search--container .search--input {
+  border: none;
+  box-shadow: none;
+  border-bottom: 1px solid #ddd;
+  width: calc(100% - 60px);
+  float: right;
+  height: 70px;
+  font-size: 32pt;
+  font-weight: 300;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0);
+  color: #fff;
+  position: relative
+}
+
+.search--image .search--container .search--input * {
+  position: relative;
+  top: 0
+}
+
+.search--image .search--container .search--input:focus {
+  border-bottom: 1px solid #07ad24;
+  box-shadow: 0 1px 0 0 #07ad24;
+  background-color: rgba(255, 255, 255, .3)
+}
+
+footer img{
+  margin-top: 20px;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
+footer .footer-copyright {
+  background: rgba(51, 51, 51, 0.00);
+}
+
+.parallax-container {
+  min-height: 500px;
+}
+
+.mapcontainer {
+    height: 85vh;
+  margin-top: 10px;
+}
+
+.stretch-height {
+  height: 90vh;
+  overflow-y: scroll;
+  margin-bottom: 0;
+  margin-top: 5px;
+}
+
+#max_nr_of_roommates {
+  margin-bottom: 0;
+}
+
+.map-main {
+  box-shadow: 0 0 3px 0 black;
+}
+
+.nomargins .map-main {
+box-shadow: none;
+}
+.nomargins.mapcontainer {
+margin-top: 5px;
+  padding: 0;
+  height: 90vh;
+}
+
+.stuck {
+  position:fixed;
+  top:0;
+  left: unset !important;
+  right: 0 !important;
+}
+
+.search-flex {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 90vh;
+  align-items: stretch;
+}
+
+.search-left {
+  flex: 0 1 550px;
+  margin-left: 5px;
+  margin-right: 5px;
+  box-shadow: 2px 0 2px -2px black;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.search-left.grow {
+    flex: 1 1 400px;
+}
+
+.customicon {
+  line-height: 0;
+  width: 26px;
+  height: 26px;
+  cursor: pointer !important;
+}
+
+.search-map {
+  flex: 2 0 auto;
+}
+
+personality-test .dim {
+  background: rgba(0,0,0,0.5);
+}
+
+personality-test .content {
+  height: 94vh;
+  margin-top: 3vh;
+  padding: 10px 0 30px 0;
+  background: white;
+  overflow: scroll;
+}
+
+personality-test .section-description {
+  font-size: 14pt;
+  color: rgba(0,0,0,0.6);
+}
+
+personality-test .question-title {
+  font-size: 11pt;
+  font-weight: 800;
+}
+
+personality-test .input-field {
+  padding: 0 !important;
+  color: rgba(0,0,0,0.8);
+}
+
+personality-test .materialboxed {
+  margin: 20px 0;
+}
+
+
+personality-test .likert-line {
+  margin: 10px 0 20px 0;
+}
+
+/* ANIMATIONS  */
+.animated {
+    animation-duration: 0.9s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {transform: translateX(-10px);}
+    20%, 40%, 60%, 80% {transform: translateX(10px);}
+}
+.shake {
+    animation-name: shake;
+}
+
+.slider .slides li .caption.caption_neu {
+  color: #fff;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 70%;
+  opacity: 0;
+}
+
+.card .card-title.card-titel-new {
+  top: 5%;
+  left: 5%;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.card .card-title.card-button{
+  top: 5%;
+  left: 70%;
+}
+
+#toast-container {
+  top: auto !important;
+  right: auto !important;
+  bottom: 10%;
+  left: 50%;
+}
+
+.match-container {
+  margin: 40px 0;
+}
+
+.match-container a{
+  color: black;
+}
+
+.match-card {
+  min-height: 85px;
+}
+
+.match-score {
+  font-size: 16pt;
+}
+
+.match-score.hot {
+  color: #07ad24;
+}
+
+.subtitle {
+  font-size: 14pt;
+  color: rgba(0,0,0,0.6);
+}
+.slider .indicators .indicator-item.active {
+  background-color: #546e7a;
+}

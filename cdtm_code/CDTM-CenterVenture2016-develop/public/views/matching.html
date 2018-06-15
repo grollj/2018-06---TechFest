@@ -1,0 +1,14 @@
+<div class="container">
+
+      <div class="col s12" style="margin-top:30px;margin-bottom:20px">
+        <h1>My Matches</h1>
+      </div>
+      <div class="col s12 subtitle" >
+        Have a look a the people you match best with.
+      </div>
+
+      <div class="match-container">
+        <div ng-repeat="match in matches | orderBy:'-score'">
+          <match-card match="match"></match-card>
+      </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col s12">
+        <div class="container">
+
+            <div class"row" style="margin-top: 50px">
+            <div class="col s12 m12 l8">
+                <h4>Profil</h4>
+            </div>
+            <div class="col s12 m12 l8">
+
+                <ul class="collection">
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle red">description</i>
+                        <span class="title"><b>Name</b></span>
+                        <p>{{profile.first_name}} {{profile.last_name}}</p>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle orange">settings</i>
+                        <span class="title"><b>Settings</b></span>
+                        <p>Security <br>
+                            Account
+                        </p>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle green">play_arrow</i>
+                        <span class="title"><b>Connectivity</b></span>
+                        <p>Social Media <br>
+                            Smartphone
+                        </p>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="col s12 m12 l4">
+                <img class="responsive-img" src={{profile.pictureUrl}}>
+                <br><p ng-hide="profile._id === user._id" >Your Matching Score: {{ rooms[0].score * 100}}%</p>
+                <div class="btn">
+                    <span>Back</span>
+                </div>
+                <div class="btn">
+                    <span ng-click="submitPoke(profile._id)">Poke</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <h5>About Me</h5>
+                <div ng-switch="profile.about">
+                    <p ng-switch-when="undefined">No information available.</p>
+                    <p ng-switch-default>{{ profile.about }}</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <h5>My Offers</h5>
+                <div ng-repeat="room in rooms" class="col s6 m6 l4">
+                     <offer-preview class="col s12"></offer-preview>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>

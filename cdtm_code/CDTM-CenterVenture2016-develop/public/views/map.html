@@ -1,0 +1,29 @@
+
+<!--<div class="fixed-action-btn menu-btn" id="menu-btn">-->
+    <!--<a id="sidebartoggle" class="btn-floating btn-large waves-effect waves-light red horizontal" ng-click="toggle()">-->
+        <!--<i class="material-icons">menu</i></a>-->
+<!--</div>-->
+
+<div class="main map-main">
+    <leaflet center="center" class="map" tiles="tiles" id="map"></leaflet>
+
+    <ul class="sidebar side-nav-fake" ng-init="datasets=[]">
+        <li ng-init="dataset={name: 'Districts', checked: false}">
+            <a class="waves-effect" href="javascript:void(0)">
+                <input type="checkbox" ng-attr-id="check-{{dataset.name}}" ng-attr-data-dset="{{dataset.name}}" class="filled-in"
+                       ng-model="dataset.checked" ng-click="datasetClicked(dataset)"/>
+                <label ng-attr-for="check-{{dataset.name}}">{{dataset.name}}</label>
+            </a>
+        </li>
+        <li><div class="divider"></div></li>
+        <li><a class="subheader">More datasets</a></li>
+
+        <li ng-repeat="dataset in datasets">
+            <a class="waves-effect" href="javascript:void(0)">
+                <input type="checkbox" ng-attr-id="check-{{dataset.name}}" ng-attr-data-dset="{{dataset.name}}" class="filled-in"
+                       ng-model="dataset.checked" ng-click="datasetClicked(dataset)"/>
+                <label ng-attr-for="check-{{dataset.name}}">{{dataset.name}}</label>
+            </a>
+        </li>
+    </ul>
+</div>

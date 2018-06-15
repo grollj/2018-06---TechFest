@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col s12">
+        <div class="container">
+            <div class="row">
+                <div class="col s12" style="margin-left:10px;margin-top:30px;margin-bottom:20px"><h1>My Bookmarks</h1></div>
+            </div>
+            <div class="row">
+                <div ng-repeat="bookmark in bookmarks" ng-init="room=bookmark.room; bookmarked=true" class="col s6 m4">
+                    <offer-preview class="col s12"></offer-preview>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

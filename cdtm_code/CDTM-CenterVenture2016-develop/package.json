@@ -1,0 +1,33 @@
+{
+  "name": "centerventure2016",
+  "version": "1.0.0",
+  "description": "Web Application of the 2016 CDTM Center Venture.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FroeMic/CDTM-CenterVenture2016.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FroeMic/CDTM-CenterVenture2016/issues"
+  },
+  "homepage": "https://github.com/FroeMic/CDTM-CenterVenture2016#readme",
+  "dependencies": {
+    "angular-materialize": "^0.2.1",
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.14.1",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.6.3",
+    "nodemon": "^1.11.0",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "passport-local": "^1.0.0"
+  }
+}

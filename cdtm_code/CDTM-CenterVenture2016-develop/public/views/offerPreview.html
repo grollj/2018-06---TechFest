@@ -1,0 +1,37 @@
+<div class="row">
+	<div class="card">
+		<div class="card-image">
+			<a href="#/room/{{room._id}}">
+				<img src="{{room.pictures[0].img}}">
+			</a>
+			<span class="card-title card-titel-new">
+				<span ng-if="!owner" style="padding-right: 20px;">Match Rate: {{room.score * 100 | number:0 }}%</span>
+				<span style="padding-right: 20px;">Cost: {{room.price}}&euro;</span>
+			</span>
+			<span ng-if="!owner && !bookmarked" class="card-title card-button">
+				<button ng-click="submitBookmark()"  type="submit" class="btn-floating waves-effect waves-light">
+					<i class="material-icons">
+						thumb_up
+					</i>
+				</button>
+			</span>
+			<span ng-if="!owner && bookmarked" class="card-title card-button">
+				<button ng-click="removeBookmark(bookmark._id)"  type="submit" class="btn-floating waves-effect waves-light btn-red">
+					<i class="material-icons">
+						delete
+					</i>
+				</button>
+			</span>
+		</div>
+		<div class="card-content">
+			<p ng-if="bookmarked">Bookmark: {{bookmark._id}}</p>
+			<p>{{room.address}}</p>
+			<p>On Offer Since: {{room.createdAt}}</p>
+			<p ng-if="!owner">Provided by: <a href="#/profile/{{room.owner._id}}">{{room.owner.display_name}}</a></p>
+		</div>
+		<div class="card-action">
+			<a ng-if="owner" href="#/offer/{{room._id}}">Change Details</a>
+			<a ng-if="!owner" href="#/room/{{room._id}}">View Details</a>
+		</div>
+	</div>
+</div>

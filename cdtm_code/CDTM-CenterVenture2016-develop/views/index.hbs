@@ -1,0 +1,57 @@
+<nav class="white" role="navigation">
+    <ul id="nav-mobile" class="dropdown-content">
+        <li class="black-text" style="vertical-align:middle;">
+          <a href="#account" style="padding:0;">
+            <img class="circular-image" src="http://graph.facebook.com/{{user.id}}/picture?type=large" alt="" height="40px" style="margin: 12px; vertical-align:middle;"/>
+            {{user.displayName}}
+          </a>
+        </li>
+        <li class="divider"></li>
+        <li><a href="#messages">
+          My Messages
+          <span hide ng-show="notifications>0" style="color:red;">
+            (<span ng-bind="notifications"></span>)
+          </span>
+        </a></li>
+        <li><a href="#matches">My Matches</a></li>
+        <li><a href="#offers">My Offers</a></li>
+        <li><a href="#rooms">All Rooms</a></li>
+        <li><a href="#bookmarks">My Bookmarks</a></li>
+        <li class="divider"></li>
+        <li><a href="/logout" target="_self">Logout</a></li>
+    </ul>
+    <div class="nav-wrapper container">
+        <a href="#/"><img src="img/logo.png" style="height:60px;"></a><a id="logo-container" href="#/" class="brand-logo primary-text">flatling</a>
+        <ul class="right valign-wrapper" style="height: 100%;">
+            <li class="valign" style="height:100%">
+                {{#if user}}
+                <form class="hide-on-med-and-down">
+                  <div class="input-field search-bar">
+                    <input id="search" type="search" required>
+                    <label for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                  </div>
+                </form>
+                <li><a class="dropdown-button" href="#!" data-activates="nav-mobile" style="padding: 0 10px;">
+                  <img class="circular-image" src="http://graph.facebook.com/{{user.id}}/picture?type=square" alt="" height="50px" style="vertical-align:middle;"/>
+                  <span .hide-on-med-and-down ng-bind="user.first_name" class="primary-text" style="padding-left:10px;"></span>
+
+                  <span hide ng-show="notifications>0" style="color:red;">
+                    (<span ng-bind="notifications"></span>)
+                  </span>
+
+                </a></li>
+                {{else}}
+                    <a href="/auth/facebook/offer" target="_self" class="btn waves-effect waves-light accent">Offer Room</a>
+                    <a href="/auth/facebook" target="_self" class="btn waves-effect waves-light grey lighten-5 primary-text">Login</a>
+                {{/if}}
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<span></span>
+
+<personality-test hide ng-show="needsPersonalityTest && survey != null"></personality-test>
+
+<div ng-view></div>
