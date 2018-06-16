@@ -41,11 +41,9 @@ class ScanDelegate(DefaultDelegate):
 
     def handleDiscovery(self, dev, isNewDev, isNewData):
         if isNewDev:
-            print
-            "Discovered device", dev.addr
+            print("Discovered device", dev.addr)
         elif isNewData:
-            print
-            "Received new data from", dev.addr
+            print("Received new data from", dev.addr)
 
 
 scanner = Scanner().withDelegate(ScanDelegate())
@@ -67,19 +65,16 @@ try:
             for saddr in SENSOR_ADDRESS:
                 entry += 1
                 if (dev.addr == saddr):
-                    print
-                    "Device %s (%s), RSSI=%d dB" % (dev.addr, dev.addrType, dev.rssi)
+                    print("Device %s (%s), RSSI=%d dB" % (dev.addr, dev.addrType, dev.rssi))
                     CurrentDevAddr = saddr
                     CurrentDevLoc = SENSOR_LOCATION[entry - 1]
                     for (adtype, desc, value) in dev.getScanData():
-                        print
-                        "  %s = %s" % (desc, value)
+                        print("  %s = %s" % (desc, value))
                         if (desc == "Manufacturer"):
                             ManuData = value
 
                     if (ManuData == ""):
-                        print
-                        "No data received, end decoding"
+                        print("No data received, end decoding")
                         continue
 
                     # print ManuData
