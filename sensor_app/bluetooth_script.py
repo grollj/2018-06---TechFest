@@ -7,14 +7,14 @@ import time
 import RPi.GPIO as GPIO
 import select
 
-import gps
+#import gps
 
 
 #pin assignment
 test_led = 4
 
 #pin init
-GPIO.setwarnings(False)
+GPIO.setwarnings(True)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(test_led, GPIO.OUT)
 GPIO.output(test_led , 0)
