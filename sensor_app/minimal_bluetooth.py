@@ -40,10 +40,10 @@ class ScanDelegate(DefaultDelegate):
         DefaultDelegate.__init__(self)
 
     def handleDiscovery(self, dev, isNewDev, isNewData):
-        if isNewDev:
-            print("Discovered device", dev.addr)
-        elif isNewData:
-            print("Received new data from", dev.addr)
+        #if isNewDev:
+            #print("Discovered device", dev.addr)
+        #elif isNewData:
+            #print("Received new data from", dev.addr)
 
 
 scanner = Scanner().withDelegate(ScanDelegate())
@@ -51,10 +51,12 @@ ManuDataHex = []
 ReadLoop = True
 try:
     while (ReadLoop):
+        print("Entre Loop")
         scanner = Scanner().withDelegate(ScanDelegate())
         ManuDataHex = []
         devices = scanner.scan(5.0)
         ManuData = ""
+        print("Stop scanning")
 
         for dev in devices:
             entry = 0
