@@ -1,0 +1,120 @@
+.clearfix
+/ = form_for @task do |f|
+/   - if @task.errors.any?
+/     #error_explanation
+/       h2 = "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
+/       ul
+/         - @task.errors.full_messages.each do |message|
+/           li = message
+
+/   .field
+/     = f.label :name
+/     = f.text_field :name
+/   .field
+/     = f.label :item
+/     = f.text_field :item
+/   .field
+/     = f.label :user
+/     = f.text_field :user
+/   .field
+/     = f.label :description
+/     = f.text_field :description
+/   .actions = f.submit
+
+.clearfix
+.row
+  .col-md-12.col-sm-12.col-xs-12
+    .x_panel
+      = form_for(@task, :html => {class: 'form-horizontal form-label-left'}) do |f|
+        - if @task.errors.any?
+          #error_explanation
+            h2 = "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
+            ul
+              - @task.errors.full_messages.each do |message|
+                li = message
+        .x_title
+          h2
+            - if f.object.persisted?
+              | Edit Task
+            - else
+              | New Task
+            / small different form elements
+          ul.nav.navbar-right.panel_toolbox
+            li
+              a.collapse-link
+                i.fa.fa-chevron-up
+            li.dropdown
+              a.dropdown-toggle aria-expanded="false" data-toggle="dropdown" href="#" role="button" 
+                i.fa.fa-wrench
+              ul.dropdown-menu role="menu" 
+                li
+                  a href="#"  Settings 1
+                li
+                  a href="#"  Settings 2
+            li
+              a.close-link
+                i.fa.fa-close
+          .clearfix
+        .x_content
+          br/
+          form#demo-form2.form-horizontal.form-label-left data-parsley-validate="" 
+            .form-group
+              / label.control-label.col-md-3.col-sm-3.col-xs-12 for="first-name" 
+              = f.label :name, class: "control-label col-md-3 col-sm-3 col-xs-12" do
+                | Name
+                span.required *
+              .col-md-6.col-sm-6.col-xs-12
+                / input#first-name.form-control.col-md-7.col-xs-12 required="required" type="text" /
+                = f.text_field :name, class: 'form-control col-md-7 col-xs-12'
+            .form-group
+              / label.control-label.col-md-3.col-sm-3.col-xs-12 for="last-name" 
+              = f.label :item, class: "control-label col-md-3 col-sm-3 col-xs-12" do
+                | Item
+                span.required *
+              .col-md-6.col-sm-6.col-xs-12
+                / input#last-name.form-control.col-md-7.col-xs-12 name="last-name" required="required" type="text" /
+                = f.text_field :item, class: 'form-control col-md-7 col-xs-12'
+            .form-group
+              / label.control-label.col-md-3.col-sm-3.col-xs-12 for="last-name" 
+              = f.label :user, class: "control-label col-md-3 col-sm-3 col-xs-12" do
+                | Assigned to
+                span.required *
+              .col-md-6.col-sm-6.col-xs-12
+                / input#last-name.form-control.col-md-7.col-xs-12 name="last-name" required="required" type="text" /
+                = f.text_field :user, class: 'form-control col-md-7 col-xs-12'
+            .form-group
+              / label.control-label.col-md-3.col-sm-3.col-xs-12 for="last-name" 
+              = f.label :description, class: "control-label col-md-3 col-sm-3 col-xs-12" do
+                | Description
+                span.required *
+              .col-md-6.col-sm-6.col-xs-12
+                / input#last-name.form-control.col-md-7.col-xs-12 name="last-name" required="required" type="text" /
+                = f.text_area :description, cols: 4, class: 'form-control col-md-7 col-xs-12'
+            / .form-group
+              label.control-label.col-md-3.col-sm-3.col-xs-12 for="middle-name"  Middle Name / Initial
+              .col-md-6.col-sm-6.col-xs-12
+                input#middle-name.form-control.col-md-7.col-xs-12 name="middle-name" type="text" /
+            / .form-group
+              label.control-label.col-md-3.col-sm-3.col-xs-12 Gender
+              .col-md-6.col-sm-6.col-xs-12
+                #gender.btn-group data-toggle="buttons" 
+                  label.btn.btn-default data-toggle-class="btn-primary" data-toggle-passive-class="btn-default" 
+                    input name="gender" type="radio" value="male" /
+                    | \&nbsp; Male &nbsp;
+                  label.btn.btn-primary data-toggle-class="btn-primary" data-toggle-passive-class="btn-default" 
+                    input name="gender" type="radio" value="female" /
+                    | Female
+            / .form-group
+              label.control-label.col-md-3.col-sm-3.col-xs-12
+                | Date Of Birth
+                span.required *
+              .col-md-6.col-sm-6.col-xs-12
+                input#birthday.date-picker.form-control.col-md-7.col-xs-12 required="required" type="text" /
+            .ln_solid
+            .form-group
+              .col-md-6.col-sm-6.col-xs-12.col-md-offset-3
+                .actions 
+                  button.btn.btn-primary type="button"  Cancel
+                  button.btn.btn-primary type="reset"  Reset
+                  / button.btn.btn-success type="submit"  Submit
+                  = f.submit class: 'btn btn-success'

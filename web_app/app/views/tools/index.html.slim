@@ -1,0 +1,29 @@
+h1 Listing tools
+
+table
+  thead
+    tr
+      th Name
+      th Bt
+      th Type
+      th Latitude
+      th Longitude
+      th
+      th
+      th
+
+  tbody
+    - @tools.each do |tool|
+      tr
+        td = tool.name
+        td = tool.bt_id
+        td = tool.type
+        td = tool.latitude
+        td = tool.longitude
+        td = link_to 'Show', tool
+        td = link_to 'Edit', edit_tool_path(tool)
+        td = link_to 'Destroy', tool, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Tool', new_tool_path

@@ -1,0 +1,99 @@
+/ h1 Listing items
+
+/ table
+/   thead
+/     tr
+/       th Name
+/       th Type
+/       th Latitude
+/       th Longitude
+/       th
+/       th
+/       th
+
+/   tbody
+/     - @items.each do |item|
+/       tr
+/         td = item.name
+/         td = item.type
+/         td = item.latitude
+/         td = item.longitude
+/         td = link_to 'Show', item
+/         td = link_to 'Edit', edit_item_path(item)
+/         td = link_to 'Destroy', item, data: { confirm: 'Are you sure?' }, method: :delete
+
+/ br
+
+/ = link_to 'New Item', new_item_path
+
+
+.clearfix
+.col-md-12.col-sm-12.col-xs-12
+  .x_panel
+    .x_title
+      h2
+        | Items / Objects
+        small Trees
+      ul.nav.navbar-right.panel_toolbox
+        li
+          a.collapse-link
+            i.fa.fa-chevron-up
+        li.dropdown
+          a.dropdown-toggle aria-expanded="false" data-toggle="dropdown" href="#" role="button" 
+            i.fa.fa-wrench
+          ul.dropdown-menu role="menu" 
+            li
+              a href="#"  Settings 1
+            li
+              a href="#"  Settings 2
+        li
+          a.close-link
+            i.fa.fa-close
+      .clearfix
+    .x_content
+      p
+        | Add class
+        code bulk_action
+        | to table for bulk actions options on row select
+      .table-responsive
+        table.table.table-striped.jambo_table.bulk_action
+          thead
+            tr.headings
+              th
+                input#check-all.flat type="checkbox" /
+              th.column-title Name
+              th.column-title Type
+              th.column-title Latitude
+              th.column-title Longitude
+              th.column-title Tasks
+              th.column-title Status
+              th.column-title.no-link.last
+                span.nobr Action
+              th.bulk-actions colspan="7" 
+                a.antoo style=("color:#fff; font-weight:500;") 
+                  | Bulk Actions (
+                  span.action-cnt
+                  | )
+                  i.fa.fa-chevron-down
+          tbody
+            - @items.each do |item|
+              tr.pointer
+                td.a-center
+                  input.flat name="table_records" type="checkbox" /
+                td = item.name
+                td = item.item_type
+                td = item.latitude
+                td = item.longitude
+                td Tasks
+                td Status
+                td.last
+                  = link_to 'Show', item
+                  = link_to 'Edit', edit_item_path(item)
+                  = link_to 'Destroy', item, data: { confirm: 'Are you sure?' }, method: :delete
+            / tr.odd.pointer
+            / tr.even.pointer
+            
+
+      br
+
+      = link_to 'New Item', new_item_path

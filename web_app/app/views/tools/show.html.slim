@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @tool.name
+p
+  strong Bt:
+  = @tool.bt_id
+p
+  strong Type:
+  = @tool.type
+p
+  strong Latitude:
+  = @tool.latitude
+p
+  strong Longitude:
+  = @tool.longitude
+
+=> link_to 'Edit', edit_tool_path(@tool)
+'|
+=< link_to 'Back', tools_path
