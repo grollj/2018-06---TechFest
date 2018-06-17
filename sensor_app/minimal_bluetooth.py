@@ -15,6 +15,7 @@
 
 from bluepy.btle import Scanner, DefaultDelegate
 import time
+
 #import paho.mqtt.publish as publish
 #import struct
 #import json
@@ -23,8 +24,8 @@ import time
 #MQTT_PATH = "Connector"
 
 # Enter the MAC address of the sensor from the lescan
-RAW_SENSOR_ADDRESS = "80:EA:CA:80:02:57"
-SENSOR_ADDRESS = ["80:EA:CA:80:02:57"]
+RAW_SENSOR_ADDRESS = "80:ea:ca:80:02:57"
+SENSOR_ADDRESS = ["80:ea:ca:80:02:57"]
 SENSOR_LOCATION = ["Garage", "Exterior"]
 
 class DecodeErrorException(Exception):
@@ -40,6 +41,7 @@ class ScanDelegate(DefaultDelegate):
         DefaultDelegate.__init__(self)
 
     def handleDiscovery(self, dev, isNewDev, isNewData):
+        x=1
         #if isNewDev:
             #print("Discovered device", dev.addr)
         #elif isNewData:
@@ -80,61 +82,20 @@ try:
                         continue
 
                     # print ManuData
-
                     for i, j in zip(ManuData[::2], ManuData[1::2]):
                         ManuDataHex.append(int(i + j, 16))
 
-                    # #Start decoding the raw Manufacturer data
-                    #                    if ((ManuDataHex[0] == 0x85) and (ManuDataHex[1] == 0x00)):
-                    #                        print "Header byte 0x0085 found"
-                    #                    else:
-                    #                        print "Header byte 0x0085 not found, decoding stop"
-                    #                        continue
-
-                    # Skip Major/Minor
-                    # Index 5 is 0x3c, indicate battery level and config #
-                    #                    if (ManuDataHex[4] == 0x3c):
-                    #                        BatteryLevel = ManuDataHex[5]
-                    #                        ConfigCounter = ManuDataHex[6]
-
-                    #                    idx = 7
-                    # print "TotalLen: " + str(len(ManuDataHex))
-                    #                    while (idx < len(ManuDataHex)):
-                    # print "Idx: " + str(idx)
-                    # print "Data: " + hex(ManuDataHex[idx])
-
-                    #                        if (ManuDataHex[idx] == 0x41):
-                    #                            #Accerometer data
-                    #                            idx += 1
-                    #                            AcceleroType = ManuDataHex[idx]
-                    #                            AcceleroData = ManuDataHex[idx+1]
-                    #                            idx += 2
-                    #                        elif (ManuDataHex[idx] == 0x43):
-                    #                            #Temperature data
-                    #                            idx += 1
-                    #                            TempData = ManuDataHex[idx]
-                    #                            TempData += ManuDataHex[idx+1] * 0x100
-                    #                            TempData = TempData * 0.0625
-                    #                            idx += 2
-                    #                        else:
-                    #                            idx += 1
-
-                    #                    print "Device Address: " + CurrentDevAddr
-                    #                    print "Device Location: " + CurrentDevLoc
-                    #                    print "Battery Level: " + str(BatteryLevel) + "%"
-                    #                    print "Config Counter: " + str(ConfigCounter)
-                    #                    print "Accelero Data: " + hex(AcceleroType) + " " + hex(AcceleroData)
-                    #                    print "Temp Data: " + str(TempData)
-
+                    MSB_macaddr = ManuDataHex[7]
+                    RPM_motor = ManuDataHex[14]
                     deviceRuntime = (ManuDataHex[12] * 16777216) + (ManuDataHex[11] * 65536) + (
                     ManuDataHex[10] * 256) + (ManuDataHex[9]);
-                    SensorData = {'DeviceAddres': dev.addr, 'DeviceRuntime': deviceRuntime}
+                    SensorData = {'DeviceAddres': dev.addr, 'RPM_motor': RPM_motor}
                     #json_string = json.dumps(SensorData)
                     print(SensorData)
                     #json_string
                     #publish.single(MQTT_PATH, json_string, hostname=MQTT_SERVER)
                     ReadLoop = True
-                    time.sleep(15)
+                    time.sleep(2)
 
 except DecodeErrorException:
     pass
