@@ -1,0 +1,43 @@
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+
+default: &default
+  adapter: sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  # database: db/development.sqlite3
+  host: localhost
+  adapter: postgresql
+  encoding: utf8
+  database: <%= ENV.fetch('TF18_DATABASE', 'tf18') %>
+  port: <%= ENV.fetch('TF18_DATABASE_PORT', 5432) %>
+  username: <%= ENV.fetch('TF18_DATABASE_USER', 'tf18') %>
+  password: <%= ENV.fetch('TF18_DATABASE_PASSWORD', 'tf18') %>
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: db/test.sqlite3
+
+production:
+  <<: *default
+  host: localhost
+  adapter: postgresql
+  encoding: utf8
+  database: tf18
+  port: <%= ENV.fetch('TF18_DATABASE_PORT', 5432) %>
+  username: <%= ENV['TF18_DATABASE_USER'] %>
+  password: <%= ENV['TF18_DATABASE_PASSWORD'] %>
+
+staging:
+  <<: *default
+  database: db/staging.sqlite3

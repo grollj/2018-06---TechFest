@@ -1,0 +1,170 @@
+/ h1 Listing tasks
+
+/ table
+/   thead
+/     tr
+/       th Name
+/       th Item
+/       th User
+/       th
+/       th
+/       th
+
+/   tbody
+/     - @tasks.each do |task|
+/       tr
+/         td = task.name
+/         td = task.item
+/         td = task.user
+/         td = link_to 'Show', task
+/         td = link_to 'Edit', edit_task_path(task)
+/         td = link_to 'Destroy', task, data: { confirm: 'Are you sure?' }, method: :delete
+
+/ br
+
+/ = link_to 'New Task', new_task_path
+
+.page-title
+  .title_left
+    h3 Tasks
+  .title_right
+    .col-md-5.col-sm-5.col-xs-12.form-group.pull-right.top_search
+      .input-group
+        input.form-control placeholder=("Search for...") type="text" /
+        span.input-group-btn
+          button.btn.btn-default type="button"  Go!
+.clearfix
+.col-md-6.col-sm-6.col-xs-12
+  .col-md-12
+    .x_panel
+      .x_title
+        h2
+          | Daily active users
+          small Sessions
+        ul.nav.navbar-right.panel_toolbox
+          li
+            a.collapse-link
+              i.fa.fa-chevron-up
+          li.dropdown
+            a.dropdown-toggle aria-expanded="false" data-toggle="dropdown" href="#" role="button" 
+              i.fa.fa-wrench
+            ul.dropdown-menu role="menu" 
+              li
+                a href="#"  Settings 1
+              li
+                a href="#"  Settings 2
+          li
+            a.close-link
+              i.fa.fa-close
+        .clearfix
+      .x_content
+        ul.list-unstyled.msg_list
+          - @tasks.each do |task|
+            li
+              = link_to task do
+                span.image
+                  img alt="img" src="images/tree.png" /
+                span
+                  span 
+                    - if task.user
+                      = task.user.name
+                    - else
+                      | not assigned
+                  span.time 3 mins ago
+                span.message
+                  = task.description
+
+  br
+
+  = link_to 'New Task', new_task_path
+.col-md-6.col-sm-6.col-xs-12
+  script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js" 
+  link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css" rel="stylesheet" /
+  #map style="height:80vh;width:100%" 
+.clearfix
+#custom_notifications.custom-notifications.dsp_none
+  ul.list-unstyled.notifications.clearfix data-tabbed_notifications="notif-group" 
+  .clearfix
+  #notif-group.tabbed_notifications
+
+javascript:
+  mapboxgl.accessToken = 'pk.eyJ1IjoiZmxvaG04MiIsImEiOiJhZjE3NjM4YmFiMmY3NzRhOGQ2Nzg2MjQyYTBkZjg4NiJ9.Lpsx3qGaA65AJgnUPTpCZw';
+  var map = new mapboxgl.Map({
+        container: 'map', // container id
+        style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
+        center: [11.665858046125095, 48.268196928518165], // starting position [lng, lat]
+        zoom: 9 // starting zoom
+    });
+
+  // map.on('load', function() {
+  //     map.loadImage('/images/tree.png', function(error, image) {
+  //         if (error) throw error;
+  //         map.addImage('tree', image);
+  //         map.addLayer({
+  //             "id": "points",
+  //             "type": "symbol",
+  //             "source": {
+  //                 "type": "geojson",
+  //                 "data": {
+  //                     "type": "FeatureCollection",
+  //                     "features": [{
+  //                         "type": "Feature",
+  //                         "geometry": {
+  //                             "type": "Point",
+  //                             "coordinates": [11.665858046125095, 48.268196928518165]
+  //                         }
+  //                     }]
+  //                 }
+  //             },
+  //             "layout": {
+  //                 "icon-image": "tree",
+  //                 "icon-size": 0.25
+  //             }
+  //         });
+  //     });
+  // });
+
+  map.on('load', function () {
+
+      map.addLayer({
+          "id": "points",
+          "type": "symbol",
+          "source": {
+              "type": "geojson",
+              "data": {
+                  "type": "FeatureCollection",
+                  "features": [{
+                      "type": "Feature",
+                      "geometry": {
+                          "type": "Point",
+                          "coordinates": [11.665858046125095, 48.268196928518165]
+                      },
+                      "properties": {
+                          "title": "Mapbox DC",
+                          "icon": "park"
+                      }
+                  }, {
+                      "type": "Feature",
+                      "geometry": {
+                          "type": "Point",
+                          "coordinates": [11.664, 48.269]
+                      },
+                      "properties": {
+                          "title": "Mapbox SF",
+                          "icon": "natural"
+                      }
+                  }]
+              }
+          },
+          "layout": {
+              "icon-image": "{icon}-15",
+              "text-field": "{title}",
+              "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+              "text-offset": [0, 0.6],
+              "text-anchor": "top"
+          }
+      });
+  });
+
+
+

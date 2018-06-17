@@ -1,0 +1,257 @@
+script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js" 
+link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css" rel="stylesheet" /
+
+.clearfix
+div style="position:relative;"
+  div style="position:absolute;width:100%"
+    #map style="height:90vh;width:100%" 
+  div
+
+
+    .col-md-4.col-sm-4.col-xs-12.offset-md-8
+      #js-updates.x_panel.tile
+        .x_title
+          h2 Updates
+          ul.nav.navbar-right.panel_toolbox
+            li
+              a.collapse-link
+                i.fa.fa-chevron-up
+            li.dropdown
+              a.dropdown-toggle aria-expanded="false" data-toggle="dropdown" href="#" role="button" 
+                i.fa.fa-wrench
+              ul.dropdown-menu role="menu" 
+                li
+                  a href="#"  Settings 1
+                li
+                  a href="#"  Settings 2
+            li
+              a.close-link
+                i.fa.fa-close
+          .clearfix
+        .x_content
+          ul#js-update-list.list-unstyled.msg_list
+            - Event.all.order(created_at: :desc).limit(8).each do |e|
+              li
+                = link_to e do
+                  span.image
+                    img alt="img" src="images/tree.png" /
+                  span
+                    span 
+                      - if e.data && e.data['ID']
+                        = e.data['ID']
+                      - else
+                        | not assigned
+                    span.time 3 mins ago
+                  span.message
+                    - if e.data && e.data['status']
+                    = e.data['status']
+
+
+/ h1 Listing tasks
+
+/ table
+/   thead
+/     tr
+/       th Name
+/       th Item
+/       th User
+/       th
+/       th
+/       th
+
+/   tbody
+/     - @tasks.each do |task|
+/       tr
+/         td = task.name
+/         td = task.item
+/         td = task.user
+/         td = link_to 'Show', task
+/         td = link_to 'Edit', edit_task_path(task)
+/         td = link_to 'Destroy', task, data: { confirm: 'Are you sure?' }, method: :delete
+
+/ br
+
+/ = link_to 'New Task', new_task_path
+
+    .page-title
+      .title_left
+        h3 Tasks
+      .title_right
+        .col-md-5.col-sm-5.col-xs-12.form-group.pull-right.top_search
+          .input-group
+            input.form-control placeholder=("Search for...") type="text" /
+            span.input-group-btn
+              button.btn.btn-default type="button"  Go!
+    .clearfix
+    .col-md-6.col-sm-6.col-xs-12
+      .col-md-12
+        .x_panel
+          .x_title
+            h2
+              | Daily active users
+              small Sessions
+            ul.nav.navbar-right.panel_toolbox
+              li
+                a.collapse-link
+                  i.fa.fa-chevron-up
+              li.dropdown
+                a.dropdown-toggle aria-expanded="false" data-toggle="dropdown" href="#" role="button" 
+                  i.fa.fa-wrench
+                ul.dropdown-menu role="menu" 
+                  li
+                    a href="#"  Settings 1
+                  li
+                    a href="#"  Settings 2
+              li
+                a.close-link
+                  i.fa.fa-close
+            .clearfix
+          .x_content
+            ul.list-unstyled.msg_list
+              - @tasks.each do |task|
+                li
+                  = link_to task do
+                    span.image
+                      img alt="img" src="images/tree.png" /
+                    span
+                      span 
+                        - if task.user
+                          = task.user.name
+                        - else
+                          | not assigned
+                      span.time 3 mins ago
+                    span.message
+                      = task.description
+
+      br
+
+      = link_to 'New Task', new_task_path
+    .col-md-6.col-sm-6.col-xs-12
+      script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js" 
+      link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css" rel="stylesheet" /
+      #map style="height:80vh;width:100%" 
+    .clearfix
+    #custom_notifications.custom-notifications.dsp_none
+      ul.list-unstyled.notifications.clearfix data-tabbed_notifications="notif-group" 
+      .clearfix
+      #notif-group.tabbed_notifications
+
+
+- features = []
+- Item.all.each do |i|
+  - features << {"type": "Feature", "geometry": {"type": "Point","coordinates": [i.longitude.to_f, i.latitude.to_f]},"properties": {"title": "Tree","icon": "park"}}
+
+- saw = Event.last
+/- if saw.data[]
+/ - features << {"type": "Feature", "geometry": {"type": "Point","coordinates": [i.longitude.to_f, i.latitude.to_f]},"properties": {"title": "Tree","icon": "park"}}
+
+
+javascript:
+  mapboxgl.accessToken = 'pk.eyJ1IjoiZmxvaG04MiIsImEiOiJhZjE3NjM4YmFiMmY3NzRhOGQ2Nzg2MjQyYTBkZjg4NiJ9.Lpsx3qGaA65AJgnUPTpCZw';
+  var map = new mapboxgl.Map({
+        container: 'map', // container id
+        style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
+        center: [11.6645, 48.2695], // starting position [lng, lat]
+        zoom: 18 // starting zoom
+    });
+
+  // map.on('load', function() {
+  //     map.loadImage('/images/tree.png', function(error, image) {
+  //         if (error) throw error;
+  //         map.addImage('tree', image);
+  //         map.addLayer({
+  //             "id": "points",
+  //             "type": "symbol",
+  //             "source": {
+  //                 "type": "geojson",
+  //                 "data": {
+  //                     "type": "FeatureCollection",
+  //                     "features": [{
+  //                         "type": "Feature",
+  //                         "geometry": {
+  //                             "type": "Point",
+  //                             "coordinates": [11.665858046125095, 48.268196928518165]
+  //                         }
+  //                     }]
+  //                 }
+  //             },
+  //             "layout": {
+  //                 "icon-image": "tree",
+  //                 "icon-size": 0.25
+  //             }
+  //         });
+  //     });
+  // });
+
+  map.on('load', function () {
+
+      map.addLayer({
+          "id": "points",
+          "type": "symbol",
+          "source": {
+              "type": "geojson",
+              "data": {
+                  "type": "FeatureCollection",
+                  "features": #{{features.to_json}}
+              }
+          },
+          "layout": {
+              "icon-image": "{icon}-15",
+              "text-field": "{title}",
+              "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+              "text-offset": [0, 0.6],
+              "text-anchor": "top"
+          }
+      });
+  });
+
+javascript:
+  // set timeout
+  var tid = setTimeout(getUpdates, 1000);
+  function getUpdates() {
+    $.getJSON( "/api/events.json", function( data ) {
+      console.log(data);
+      if (data.length > 0) {
+        $('#js-updates').show();
+
+        $('#js-update-list').empty();
+        $.each( data, function( key, val ) {
+          // items.push( "<li id='" + key + "'>" + val + "</li>" );
+          $('<li><a><span class="image"><img src="images/tree.png" /></span><span><span>'+val['ID']+'</span><span class="time">'+val['created_at']+'</span></span><span class="message">'+val['status']+'</span></a></li>').appendTo( "#js-update-list" );
+        });
+      } else {
+        $('#js-updates').hide();
+      }
+
+    });
+    tid = setTimeout(getUpdates, 2000);
+  }
+  function abortTimer() { // to be called when you want to stop the timer
+    clearTimeout(tid);
+  }
+
+/
+          ul#js-update-list.list-unstyled.msg_list
+            - Event.all.order(created_at: :desc).limit(8).each do |e|
+              li
+                = link_to e do
+                  span.image
+                    img alt="img" src="images/tree.png" /
+                  span
+                    span 
+                      - if e.data && e.data['ID']
+                        = e.data['ID']
+                      - else
+                        | not assigned
+                    span.time 3 mins ago
+                  span.message
+                    - if e.data && e.data['status']
+                    = e.data['status']
+
+css:
+  ul.msg_list li a .message {
+    font-size: 16px;
+  }
+  #js-update-list {
+    font-size: 18px;
+  }

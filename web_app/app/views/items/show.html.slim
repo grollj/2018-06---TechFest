@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @item.name
+p
+  strong Type:
+  = @item.item_type
+p
+  strong Latitude:
+  = @item.latitude
+p
+  strong Longitude:
+  = @item.longitude
+
+=> link_to 'Edit', edit_item_path(@item)
+'|
+=< link_to 'Back', items_path

@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Event type:
+  = @event.event_type
+p
+  strong Item:
+  = @event.item
+p
+  strong User:
+  = @event.user
+p
+  strong Data:
+  = @event.data
+
+=> link_to 'Edit', edit_event_path(@event)
+'|
+=< link_to 'Back', events_path

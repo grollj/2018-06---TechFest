@@ -1,0 +1,24 @@
+= form_for @tool do |f|
+  - if @tool.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@tool.errors.count, "error")} prohibited this tool from being saved:"
+      ul
+        - @tool.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :bt_id
+    = f.text_field :bt_id
+  .field
+    = f.label :type
+    = f.text_field :type
+  .field
+    = f.label :latitude
+    = f.text_field :latitude
+  .field
+    = f.label :longitude
+    = f.text_field :longitude
+  .actions = f.submit

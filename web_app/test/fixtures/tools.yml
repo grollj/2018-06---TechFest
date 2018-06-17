@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  bt_id: MyString
+  type: 
+  latitude: 9.99
+  longitude: 9.99
+
+two:
+  name: MyString
+  bt_id: MyString
+  type: 
+  latitude: 9.99
+  longitude: 9.99
